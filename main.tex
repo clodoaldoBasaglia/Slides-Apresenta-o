@@ -1,0 +1,266 @@
+\documentclass{beamer}
+\usepackage{minted}
+\usepackage{outlines}
+\include{configurations}
+%\documentclass[12pt]{beamer}
+%\documentclass[handout]{beamer}
+% \setbeameroption{show notes}
+% \setbeamertemplate{note page}[plain]
+\usepackage{etex}
+\usepackage{minted}
+\usepackage{pgfpages}
+% inclui o modo handout.
+\include{seisporpagina}
+\include{colors-defs}
+\include{variables}
+\usepackage{appendixnumberbeamer}
+\newtcolorbox{mybox}[3][]
+{
+	breakable,
+	boxsep=1pt,
+	left=2pt,
+	right=2pt,
+	top=1pt,
+	bottom=1pt,
+	colframe = #2!40!black,
+	colback  = #2!10,
+	% coltitle = #2!20!black,  
+	title    = #3,
+	#1,
+}
+
+%-----------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title[\idsubjectcourseinstitution] %optional
+{\texttt{\classnumber} \classtitle}
+\subtitle{\classsubtitle}
+\normalsize
+\author[Clodoaldo da Fonseca] % (optional)
+{\\\\Clodoaldo A. Basaglia da Fonseca \\Prof. Dr. Radames Juliano Halmeman
+	\texttt{}\\
+ \and
+ \inst{}\\
+    \texttt{}
+}
+
+\normalsize
+\institute[] % (optional)
+{
+ %\inst{1}%
+  \universityname \\
+  \departmentname \\
+  \citystatecountry
+  \and
+  \large
+  \textbf{\coursename}
+  
+  \vspace{-1.0cm}
+}
+\date[\today] % (optional)
+{\vspace{-1.5cm} \texttt{\subjectname}}
+
+% \logo{\includegraphics[height=0.7cm]{logos/logos.png}}
+%\titlegraphic{\includegraphics[width=2cm]{logos/logos.png}\hspace*{4.75cm}~%
+%	\includegraphics[width=2cm]{logos/logos.png}
+%}
+
+% \titlegraphic{\includegraphics[height=0.7cm]{logos/logos.png}\vspace*{-0.2cm}}
+
+\setbeamertemplate{navigation symbols}{}
+
+%End of title page configuration block
+%-------------------------------------------------------
+
+%-----------------------------------------------------
+%The next block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}
+%    \frametitle{Agenda}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+%-----------------------------------------------------
+\begin{document}
+
+%The next statement creates the title page.
+%\frame{\titlepage}
+%\note{note}
+
+{
+	\setbeamertemplate{headline}{}
+	%\usebackgroundtemplate{\includegraphics[trim=1.0cm 1.0cm 1.0cm 1.0cm, scale=0.47]{logos/header-utfpr.pdf}}
+	\pgfdeclareimage[width=\paperwidth,height=\paperheight]{background}{logos/header-utfpr.pdf}
+	\usebackgroundtemplate{\pgfuseimage{background}}
+
+	% logo
+	\vspace{0.5cm}
+	\pgfdeclareimage[height=0.28cm, width=1.0cm]{logo}{logos/logo.png}
+	\logo{\pgfuseimage{logo}}
+	\begin{frame}
+		\maketitle
+	\end{frame}
+}
+
+% Outros slides.
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{background}{logos/header-utfpr.pdf}
+\usebackgroundtemplate{\pgfuseimage{background}}
+
+% logo
+\vspace{0.5cm}
+\pgfdeclareimage[height=0.28cm, width=1.0cm]{logo}{logos/logo.png}
+\logo{\pgfuseimage{logo}}
+
+%---------------------------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+
+
+
+
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+\begin{frame}
+\frametitle{Contextualização}
+\begin{outline}
+ \1 Mão de obra no campo está cada vez mais escassa
+ \2 Segundo o IBGE, em 1950 cerca de 63,8\% da população brasileira era rural e no ano de 2010,  15,65\% da população brasileira é rural
+ \1 Encarecimento da produção agrícola por desperdício de insumos
+ \1 Necessidade de modernização da frota agrícola
+\end{outline}
+\end{frame}
+
+%---------------------------------------------------------------------------
+\section[]{Evolução}
+
+\begin{frame}
+\frametitle{Evolução}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.25]{imgs/arado1900.jpg}
+%\caption{Arado de tração animal}
+\label{Rotulo}
+\end{figure}
+
+
+\end{frame}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\section[]{Evolução}
+
+\begin{frame}
+\frametitle{Evolução}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.25]{imgs/tratoratual.jpg}
+%\caption{Trator operado por um humano}
+\label{Rotulo}
+\end{figure}
+
+
+\end{frame}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\section[]{Evolução}
+
+\begin{frame}
+\frametitle{Evolução}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.25]{imgs/autonomous.jpeg}
+%\caption{Trator Autônomo da Case}
+\label{Rotulo}
+\end{figure}
+
+
+\end{frame}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\section[Justificativa]{Justificativa}
+
+\begin{frame}
+\frametitle{Justificativa}
+%\vspace{-20px}
+\begin{itemize}
+    \item Dado a escassez de mão de obra, afeta-se diretamente a capacidade de produção
+    \item Aplicação de quantidades erradas insumos agrícolas podem aumentar os custos de produção e causar danos ambientais
+    \item Automação pode aumentar a competitividade
+\end{itemize}
+
+\justifying
+\Large
+\end{frame}
+%-------------------------------------------------------------------
+
+%-----------------------------------------------------
+\section[Objetivo]{Objetivo}
+
+\begin{frame}
+\frametitle{Objetivos}
+%\vspace{-20px}
+\begin{outline}
+ \1 Desenvolver um veículo autônomo de baixo custo capaz de percorrer fileiras em plantações
+ \2 Plataforma que possa acomodar diferentes funções
+ \2 Algoritmo para percorrer as fileiras sem repetir passagens
+ \2 Veículo elétrico com fonte de energia fotovoltaica
+ \2 Veículo de baixo custo torna seu uso possível na agricultura familiar
+\end{outline}
+
+\justifying
+\Large
+\end{frame}
+%---------------------------------------------------------------------------
+%-----------------------------------------------------
+\section[Embasamento]{Embasamento Teórico}
+
+\begin{frame}
+\frametitle{Embasamento Teórico}
+%\vspace{-20px}
+\begin{outline}
+\1 BRACHT, Marcos P. Pettermann. Projeto de um veículo autônomo capaz de cobrir uma área poligonal sem passar mais de uma vez pela mesma região. 2015.
+\1 Pawin Thanpattranon,Tofael Ahamed e Tomohiro Takigawa.Navigation of an Autonomous Tractor for a Row-Type Tree Plantation Using a Laser Range Finder—Development of a Point-to-Go Algorithm.2015
+
+\end{outline}
+
+\justifying
+\Large
+\end{frame}
+%---------------------------------------------------------------------------
+%-----------------------------------------------------
+\section[Trabalhos]{Trabalhos Relacionados}
+
+\begin{frame}
+\frametitle{Trabalhos Relacionados}
+%\vspace{-20px}
+\begin{outline}
+ \1 M Bietresato, G Carabin. A Tracked Mobile Robotic Lab for Monitoring the Plants Volume and Health. 
+ \1 PEREIRA, Luiz Felipe. C.E.R.B.E.R.U.S.: Robo bombeiro. 2016
+ \1 MARQUES, Leomar. Projeto Conceitual de Robô terrestre rádio Controlado de baixo custo para inspeção e transporte de materiais perigosos. 2016
+\end{outline}
+
+\justifying
+\Large
+\end{frame}
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\section[]{Fim}
+
+\begin{frame}
+\frametitle{Dúvidas?}
+\begin{center}
+    Dúvidas?\\
+    clodaoldofonseca92@gmail.com
+\end{center}
+
+\end{frame}
+%---------------------------------------------------------------------------
+
+\end{document}

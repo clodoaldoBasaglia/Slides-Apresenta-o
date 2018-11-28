@@ -1,0 +1,323 @@
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}  % idioma
+%\usepackage[T1]{fontenc}
+
+\usepackage{utopia} %font utopia imported
+
+\usepackage{framed}
+
+%\usetheme{Madrid}
+% \usecolortheme{goeagles}
+%\usecolortheme{default}
+
+%\usetheme{Frankfurt}
+\usetheme{Madrid}
+%\usecolortheme[rgb={0.23,0.27,0.29}]{structure}
+\usecolortheme[rgb={0.21, 0.27, 0.31}]{structure}
+
+%\usecolortheme{crane}
+\setbeamercovered{transparent}
+
+\usefonttheme[onlymath]{serif} % fonte modo matematico
+
+\usepackage{graphics}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{remreset}
+\usepackage{comment} % end and begin comment
+%\usepackage{dtklogos} % for \BibTeX
+\usepackage{listings} % display code on slides; don't forget [fragile] option after \begin{frame}
+\usepackage{color}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage[tikz]{bclogo}
+
+\usepackage{ragged2e} % justifying.
+
+\usepackage{lstlisting-llvm}
+
+\usepackage{adjustbox} % ajustar codigo.
+
+\usepackage[normalem]{ulem} % tachado.
+
+\usepackage{xkeyval}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+
+
+%\usepackage{enumitem} % alterar a distancia dos itens dos itemize.
+
+% Colocar boxes com descricao de figuras.
+\usepackage{graphicx}
+\newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+
+% Opçõess de listing usados para o codigo fonte
+% Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\lstset{ %
+language=Java,                  % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%basicstyle=\ttfamily,
+stringstyle=\ttfamily\color[rgb]{0.16,0.16,0.16},
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+numbersep=2pt,                  % how far the line-numbers are from the code
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=true,					% show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+framerule=0.6pt,
+tabsize=2,	                	% sets default tabsize to 2 spaces
+%keepspaces,					% set one line at code final.
+extendedchars=true,
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+aboveskip=5pt,
+upquote=true,
+columns=fixed,
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+backgroundcolor=\color[rgb]{1.0,1.0,1.0}, % choose the background color.
+rulecolor=\color[rgb]{0.8,0.8,0.8},
+xleftmargin=10pt,
+xrightmargin=10pt,
+framexleftmargin=10pt,
+framexrightmargin=10pt
+}
+
+%%% RAG----------------------------------------------------------------%
+%-----------------------Style Definitions------------------------------%
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\definecolor{DarkBlue}{rgb}{0,0,0.61}
+\definecolor{DarkGreen}{rgb}{0,0.4,0}
+\definecolor{DarkRed}{rgb}{0.51,0,0}
+\definecolor{DarkBlue2}{rgb}{0.25,0.51,0}
+
+
+% Numeros.
+\lstdefinestyle{mynumbers}{
+	numbers=left,
+	stepnumber=1,
+	numbersep=4pt,
+	numberstyle=\tiny\color{black}
+}
+% Text Code.
+\lstdefinestyle{mytextcode}{
+	basicstyle=\footnotesize,
+	tabsize=2,
+	showspaces=false,
+	showstringspaces=false,
+	extendedchars=true,
+	breaklines=true
+}
+% Frame.
+\lstdefinestyle{myframe}{
+	backgroundcolor=\color{white},
+	frame=trbl
+}
+% C++ Style.
+\lstdefinestyle{C++}{
+	language=C++,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	keywordstyle=\color{black}\bfseries,
+	stringstyle=\color{gray},
+	commentstyle=\color[rgb]{0.08,0.08,0.08},
+	morecomment=[s][\color{lightgray}]{/*}{*/},
+	otherkeywords={dim3},
+  	emph={ \_\_device\_\_, \_\_global\_\_, \_\_shared\_\_, \_\_host\_\_, \_\_constant\_\_},
+	emphstyle=\color{DarkBlue}\bfseries,
+	emph={[2] printf, scanf, \#include, \#define, \#pragma, \#typedef},
+	emphstyle=[2]\color{DarkGreen},
+}
+% C Style.
+\lstdefinestyle{C}{
+	language=C,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{javapurple}\bfseries,
+  	stringstyle=\color{gray}\bfseries,
+  	commentstyle=\color[rgb]{0.08,0.08,0.08},
+  	morecomment=[s][\color{lightgray}]{/*}{*/},
+  	otherkeywords={dim3, \#define, \#pragma, \#typedef},
+  	emph={ \_\_device\_\_, \_\_global\_\_, \_\_shared\_\_, \_\_host\_\_, \_\_constant\_\_},
+  	emphstyle=\color{DarkBlue}\bfseries,
+  	emph={[2] printf, scanf, \#include},
+  	emphstyle=[2]\color{DarkGreen},
+  	emph={[3] omp, oac},
+  	emphstyle=[3]\color{DarkRed},
+  	emph={[4] single, parallel, runtime},
+  	emphstyle=[4]\color{DarkBlue2},
+	backgroundcolor={},
+	identifierstyle=\color{black}	
+}
+% Bash Style.
+\lstdefinestyle{bash}{
+	language=bash,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	backgroundcolor={},
+	frame=single,
+	basicstyle=\scriptsize\ttfamily
+}
+% Python Style.
+\lstdefinestyle{python}{
+	language=python,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	backgroundcolor={}
+}
+% Java Style.
+\lstdefinestyle{java}{
+	language=java,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	backgroundcolor={},
+	basicstyle=\ttfamily,
+	keywordstyle=\color{javapurple}\bfseries,
+	stringstyle=\color{javared},
+	commentstyle=\color{javagreen},
+	morecomment=[s][\color{javadocblue}]{/**}{*/}
+}
+% ASM Style.
+\lstdefinestyle{asm}{
+  %belowcaptionskip=1\baselineskip,
+  %xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  style=mynumbers,
+  style=mytextcode,
+  style=myframe,
+  backgroundcolor={},
+  frame=single,
+  basicstyle=\scriptsize\ttfamily,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{gray}\bfseries,
+  commentstyle=\itshape\color{red!40!gray},
+  identifierstyle=\color{black},
+  otherkeywords={movl, leaq, movq, subq, jmp, jg, pushq, popq, addl, cmpl, movss, cmpb, idivl, cltd},
+  emph={eax, ebx, ecx, edx, esi, edi, ebp, eip, esp, r8d, r9d, r10d, r11d, r12d, r13d, r14d, r15d},
+  emphstyle=\color{DarkGreen}\bfseries,
+  emph={[2]rax, rbx, rcx, rdx, rsi, rdi, rbp, rip, rsp, r8, r9, r10, r11, r12, r13, r14, r15},
+  emphstyle=[2]\color{DarkRed}\bfseries  
+}
+
+% Fortran Style.
+\lstdefinestyle{fortran}{
+  language=[90]Fortran,
+  style=mynumbers,
+  style=mytextcode,
+  style=myframe,
+  backgroundcolor={},
+  frame=single,
+  basicstyle=\footnotesize,
+  commentstyle=\itshape\color{purple!40!black},
+  morecomment=[l]{!\ }% Comment only with space after !
+}
+
+% LLVM Style.
+\lstdefinestyle{llvm}{
+	language=llvm,
+	%inputencoding=utf8,
+	style=mynumbers,
+	style=mytextcode,
+	style=myframe,
+	backgroundcolor={},
+	frame=single,
+	basicstyle=\scriptsize\ttfamily,
+  tabsize=4,
+  %rulecolor=,
+  upquote=true,
+% aboveskip={1.5\baselineskip},
+  columns=fixed,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  showtabs=false,
+	%basicstyle=\scriptsize\upshape\ttfamily,
+  identifierstyle=\ttfamily,
+  keywordstyle=\ttfamily\bfseries\color[rgb]{0,0,0},
+  %commentstyle=\ttfamily\color[rgb]{0.133,0.545,0.133},
+  commentstyle=\ttfamily\color[rgb]{0.08,0.08,0.08},
+  %stringstyle=\ttfamily\color[rgb]{0.627,0.126,0.941}
+  stringstyle=\ttfamily\color[rgb]{0.16,0.16,0.16},
+  morecomment = [l]{;},
+    morestring=[b]", 
+    sensitive = true,
+    classoffset=0,
+    morekeywords={
+      define, declare, global, constant,
+      internal, external, private,
+      linkonce, linkonce_odr, weak, weak_odr, appending,
+      common, extern_weak,
+      thread_local, dllimport, dllexport,
+      hidden, protected, default,
+      except, deplibs,
+      volatile, fastcc, coldcc, cc, ccc,
+      x86_stdcallcc, x86_fastcallcc,
+      ptx_kernel, ptx_device,
+      signext, zeroext, inreg, sret, nounwind, noreturn,
+      nocapture, byval, nest, readnone, readonly, noalias, uwtable,
+      inlinehint, noinline, alwaysinline, optsize, ssp, sspreq,
+      noredzone, noimplicitfloat, naked, alignstack,
+      module, asm, align, tail, to,
+      addrspace, section, alias, sideeffect, c, gc,
+      target, datalayout, triple,
+      blockaddress
+    },
+    classoffset=1, keywordstyle=\color{purple},
+    morekeywords={
+      fadd, sub, fsub, mul, fmul,
+      sdiv, udiv, fdiv, srem, urem, frem,
+      and, or, xor,
+      icmp, fcmp,
+      eq, ne, ugt, uge, ult, ule, sgt, sge, slt, sle,
+      oeq, ogt, oge, olt, ole, one, ord, ueq, ugt, uge,
+      ult, ule, une, uno,
+      nuw, nsw, exact, inbounds,
+      phi, call, select, shl, lshr, ashr, va_arg,
+      trunc, zext, sext,
+      fptrunc, fpext, fptoui, fptosi, uitofp, sitofp,
+      ptrtoint, inttoptr, bitcast,
+      ret, br, indirectbr, switch, invoke, unwind, unreachable,
+      malloc, alloca, free, load, store, getelementptr,
+      extractelement, insertelement, shufflevector,
+      extractvalue, insertvalue,
+    },
+    alsoletter={\%},
+    keywordsprefix={\%},
+}
+%%% RAG----------------------------------------------------------------%
+
+\renewcommand{\lstlistingname}{Código}
+
+% \newcommand{\putat}[3]{\begin{picture}(0,0)(0,0)\put(#1,#2){#3}\end{picture}}
+
+\setbeamertemplate{caption}[numbered]
+
+
+% % % RAG -------------------------------------------------------------- %
+% References.
+\usepackage{natbib}
+
+% % % RAG -------------------------------------------------------------- %
+% Caixas
+\usepackage[most]{tcolorbox}
+\usepackage{lipsum}
+
+\usepackage{algorithm,algorithmic}
+
+\usepackage{multicol}
+\usepackage{dot2texi}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{graphviz}
